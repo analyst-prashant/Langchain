@@ -10,4 +10,7 @@ dependencies = [
     "streamlit",
     "python-dotenv",
     "langchain_community",
-]
+    "langserve",
+    "fastapi",
+    "uvicorn"
+    ]

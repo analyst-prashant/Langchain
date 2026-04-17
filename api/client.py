@@ -24,6 +24,7 @@ def get_description_response(country):
         st.error(f"Error connecting to API: {e}")
         return None
 
+#streamlit app
 st.title("Langchain API Client")
 input_country = st.text_input("Enter a country name:")
 input_topic = st.text_input("Enter a topic:")

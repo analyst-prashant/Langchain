@@ -16,8 +16,8 @@ os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
-###Prompt template
 
+###Prompt template
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", "You are a helpful assistant that helps users find information about the user queries."),
@@ -25,15 +25,16 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-###Streamlit app
-
-st.title("Langchain OpenAI Chatbot")
-input_question = st.text_input("Enter your question here:")
 
 ###OpenAI Chatbot
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7, max_tokens=1000, verbose=True)
 output_parser = StrOutputParser()
 chain = prompt | llm | output_parser
+
+
+###Streamlit app
+st.title("Langchain OpenAI Chatbot")
+input_question = st.text_input("Enter your question here:")
 
 if input_question:
     response = chain.invoke({"question": input_question})

@@ -12,5 +12,6 @@ dependencies = [
     "langchain_community",
     "langserve",
     "fastapi",
-    "uvicorn"
+    "uvicorn",
+    "sse_starlette",    
     ]
